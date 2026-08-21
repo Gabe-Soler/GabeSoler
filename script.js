@@ -64,7 +64,7 @@ if (sections.length > 0) {
         if (!entry.isIntersecting) return;
         navLinks.forEach((link) => link.style.color = '');
         const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        if (active) active.style.color = '#1a1a1a';
+        if (active) active.style.color = '#3F3FFF';
       });
     },
     { threshold: 0.3, rootMargin: '-10% 0px -50% 0px' }

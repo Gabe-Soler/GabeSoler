@@ -2,14 +2,12 @@
 :root {
   --bg: #fafafa;
   --bg-white: #ffffff;
-  --text: #1a1a1a;
+  --text: #3F3FFF;
   --text-muted: #777777;
   --text-light: #999999;
-  --border: #e0e0e0;
-  --border-light: #eeeeee;
-  --accent: #1a1a1a;
-  --serif: 'Instrument Serif', 'Georgia', serif;
+  --accent: #3F3FFF;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --serif: var(--sans);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -63,7 +61,6 @@ ul, ol {
   top: 0;
   z-index: 100;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -123,7 +120,6 @@ ul, ol {
 /* ── HERO ── */
 .hero {
   padding: 6rem 0 5rem;
-  border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
 
@@ -153,7 +149,6 @@ ul, ol {
   justify-content: space-between;
   align-items: flex-end;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .projects-label {
@@ -193,7 +188,6 @@ ul, ol {
 
 /* ── PROJECT ROW ── */
 .project-row {
-  border-bottom: 1px solid var(--border);
   padding: 2rem 0;
   transition: background var(--transition);
 }
@@ -229,7 +223,6 @@ ul, ol {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: 1px solid var(--border);
   padding: 0.2rem 0.6rem;
   border-radius: 2px;
   color: var(--text-muted);
@@ -287,7 +280,6 @@ ul, ol {
 /* ── PAGE HERO (design.html / photography.html) ── */
 .page-hero {
   padding: 5rem 0 3rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .page-title {
@@ -437,7 +429,6 @@ ul, ol {
   gap: 3rem;
   align-items: start;
   padding-bottom: 4rem;
-  border-bottom: 1px solid var(--border-light);
 }
 
 .design-showcase-item.reverse {
@@ -489,13 +480,11 @@ ul, ol {
 /* ── EXPERIENCE ── */
 .experience-section {
   padding: 4rem 0;
-  border-top: 1px solid var(--border);
   background: var(--bg);
 }
 
 .section-label {
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .experience-row {
@@ -503,7 +492,6 @@ ul, ol {
   grid-template-columns: 1fr 1.5fr;
   gap: 3rem;
   padding: 2rem 0;
-  border-bottom: 1px solid var(--border-light);
 }
 
 .exp-meta h3 {
@@ -539,7 +527,6 @@ ul, ol {
 /* ── ABOUT ── */
 .about-section {
   padding: 6rem 0 4rem;
-  border-top: 1px solid var(--border);
   background: var(--bg);
 }
 
@@ -564,7 +551,6 @@ ul, ol {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border);
 }
 
 .detail-group {
@@ -597,7 +583,6 @@ ul, ol {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  border: 1px solid var(--border);
   padding: 0.2rem 0.6rem;
   border-radius: 2px;
   color: var(--text-muted);
@@ -608,13 +593,11 @@ ul, ol {
 .skill-tags span:hover {
   background: var(--text);
   color: var(--bg-white);
-  border-color: var(--text);
 }
 
 /* ── CONTACT ── */
 .contact-section {
   padding: 4rem 0;
-  border-top: 1px solid var(--border);
   background: var(--bg);
 }
 
@@ -654,7 +637,6 @@ ul, ol {
 /* ── FOOTER ── */
 .site-footer {
   padding: 2rem 0;
-  border-top: 1px solid var(--border);
   text-align: center;
 }
 

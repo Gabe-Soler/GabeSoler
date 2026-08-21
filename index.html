@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriel Soler | Quantitative Engineer</title>
+  <title>Gabriel Soler | AI & Trading</title>
   <meta name="description"
-    content="Portfolio of Gabriel Soler — Applied Mathematics & Computer Engineering student specializing in quantitative research, algorithmic trading, and full-stack software engineering." />
+    content="Portfolio of Gabriel Soler — Queen's Math and Engineering student focused on AI and Trading, with experience across quantitative research, algorithmic trading, and full-stack software engineering." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -45,9 +45,83 @@
     <section class="hero reveal">
       <div class="container">
         <p class="hero-text">
-          <strong>I'm Gabe, an Engineering and Mathematics student at Queen's University.</strong> My career focus is in Quantitative Finance and Risk Management.<strong>
-        
+          <strong>Queen's Math and Engineering student focused on AI and Trading.</strong>
         </p>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+        <div class="section-label">
+          <span class="label">Experience</span>
+        </div>
+
+        <article class="experience-row reveal">
+          <div class="exp-meta">
+            <h3>Global Markets Program Summer Analyst</h3>
+            <span class="exp-company">RBC Capital Markets</span>
+            <span class="exp-date">May 2027</span>
+          </div>
+          <div class="exp-details">
+            <p>Scheduled to join the Sales and Trading division for a 4-month internship in Toronto.</p>
+          </div>
+        </article>
+
+        <article class="experience-row reveal">
+          <div class="exp-meta">
+            <h3>AI Innovation-X Business Analyst</h3>
+            <span class="exp-company">RBC Capital Markets</span>
+            <span class="exp-date">Apr 2026 – Present</span>
+          </div>
+          <div class="exp-details">
+            <p>Co-created and led Bridge AI, a forward-deployed engineering initiative bridging the gap between AI talent and SMEs, presenting results and future vision to 120 employees. Built the Operational Risk Prompt Library, a centralized database for AI prompts, agents, and products, later adopted at the LOB level. Developed Seshat, an AI chatbot that routes employees to the right AI solution for their problem.</p>
+          </div>
+        </article>
+
+        <article class="experience-row reveal">
+          <div class="exp-meta">
+            <h3>Portfolio Manager — Options Trading Desk</h3>
+            <span class="exp-company">Queen's Algorithmic Network & Trading Team (QUANTT)</span>
+            <span class="exp-date">Apr 2026 – Present</span>
+          </div>
+          <div class="exp-details">
+            <p>Designing a long/short gamma trading strategy using GARCH and HAR volatility forecast models to capture the volatility risk premium. Building full-stack options trading infrastructure ingesting real-time data from CBOE and historical options data from WRDS and yfinance through a multi-threaded pipeline.</p>
+          </div>
+        </article>
+
+        <article class="experience-row reveal">
+          <div class="exp-meta">
+            <h3>Quantitative Analyst</h3>
+            <span class="exp-company">Queen's Algorithmic Network & Trading Team (QUANTT)</span>
+            <span class="exp-date">Sep 2025 – Apr 2026</span>
+          </div>
+          <div class="exp-details">
+            <p>Placed 2nd out of 17 teams at the 2026 National Bank of Canada x QUANTT Trading Competition. Built a sleeve-level beta neutralization framework reducing annualized volatility by 70% vs. the S&P 500. Designed the Consensus-Based Optimizer (CBO), maintaining a Sharpe ratio above 2.0 throughout backtesting.</p>
+          </div>
+        </article>
+
+        <article class="experience-row reveal">
+          <div class="exp-meta">
+            <h3>Director of Finance</h3>
+            <span class="exp-company">Queen's Global Energy Conference (QGEC)</span>
+            <span class="exp-date">Apr 2026 – Present</span>
+          </div>
+          <div class="exp-details">
+            <p>Managing a $30,000+ budget for QGEC 2026, overseeing budget allocation and vendor negotiations. Collaborating with 10+ executives to organize, plan, and finance the conference for 10+ sponsors and 150+ participants.</p>
+          </div>
+        </article>
+
+        <article class="experience-row reveal">
+          <div class="exp-meta">
+            <h3>Director & Developer</h3>
+            <span class="exp-company">Queen's Engineering Competition</span>
+            <span class="exp-date">May 2025 – Nov 2025</span>
+          </div>
+          <div class="exp-details">
+            <p>Spearheaded the design, development, and implementation of the Queen's Engineering Competition website, enabling seamless registration for 200+ competitors and 3+ sponsors. Closely collaborated with 19 executives to ideate, plan, and execute competition logistics across 8+ categories.</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -77,9 +151,10 @@
           <div class="project-body">
             <div class="project-info">
               <p class="project-description">
-                Modeled each equity as an autonomous agent and used stochastic consensus dynamics
-                for portfolio allocation across Canadian natural resources. Achieved 50%–200%
-                Sharpe ratio increase vs. unoptimized baseline. 
+                Designed a distributed gradient-descent optimizer modeling each stock as an
+                independent agent on a fully connected graph network, converging over 400
+                iterations to a consensus weight vector. Maintained a Sharpe ratio above 2.0
+                throughout the backtesting window with positive return skewness of +3.19.
               </p>
               <span class="project-date">Research Project</span>
             </div>
@@ -127,48 +202,28 @@
           </div>
         </article>
 
-      </div>
-    </section>
-
-    <!-- ── EXPERIENCE ── -->
-    <section id="experience" class="experience-section">
-      <div class="container">
-        <div class="section-label">
-          <span class="label">Experience</span>
-        </div>
-
-        <article class="experience-row reveal">
-          <div class="exp-meta">
-            <h3>Quantitative Analyst</h3>
-            <span class="exp-company">Quantt Algorithmic Trading</span>
-            <span class="exp-date">Sep 2025 – Present</span>
+        <!-- Project 4 -->
+        <article class="project-row reveal">
+          <div class="project-top">
+            <h2 class="project-title">FIAM Asset Management Hackathon</h2>
+            <div class="project-tags">
+              <span class="tag">2026</span>
+              <span class="tag">Quantitative Research</span>
+            </div>
           </div>
-          <div class="exp-details">
-            <p>Led long-short Canadian equities strategy research using factor models and Python tooling. Co-built risk-aware position sizing capped at 2% per position, reducing volatility by 69.6%. Backtested 20+ factor weight combinations over 2+ years of market data.</p>
-          </div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="exp-meta">
-            <h3>Director & Full Stack Developer</h3>
-            <span class="exp-company">Queen's Engineering Competition</span>
-            <span class="exp-date">May 2025 – Present</span>
-          </div>
-          <div class="exp-details">
-            <p>Architected and shipped competition website with React.js + Tailwind CSS. Scaled registration experience to support 300+ competitors. Implemented UX improvements from 12+ identified pain points.</p>
+          <div class="project-body">
+            <div class="project-info">
+              <p class="project-description">
+                Selected by Professor Evan Jo (Smith School of Business) to represent Queen's
+                University with a long/short equities strategy built around the Consensus-Based
+                Optimizer. Extending the strategy with reinforcement learning and WRDS data to
+                enable hourly dynamic hedging.
+              </p>
+              <span class="project-date">Team Research & Hackathon</span>
+            </div>
           </div>
         </article>
 
-        <article class="experience-row reveal">
-          <div class="exp-meta">
-            <h3>Deck Supervisor — Aquatics</h3>
-            <span class="exp-company">Town of Oakville</span>
-            <span class="exp-date">Sep 2023 – Sep 2025</span>
-          </div>
-          <div class="exp-details">
-            <p>Promoted to deck supervisor within 9 months based on leadership and service quality. Managed aquatic operations for facilities serving 350+ patrons per day.</p>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -180,22 +235,24 @@
         <div class="about-details">
           <div class="detail-group">
             <span class="detail-label">Education</span>
-            <span>Queen's University — BASc Applied Mathematics & Computer Engineering</span>
+            <span>Queen's University, Smith Engineering — BASc Mathematics & Engineering, Computing and Communications · Class of 2028</span>
           </div>
           <div class="detail-group">
             <span class="detail-label">Skills</span>
             <div class="skill-tags">
               <span>Python</span>
-              <span>C</span>
               <span>Java</span>
               <span>SQL</span>
               <span>React.js</span>
-              <span>pandas</span>
               <span>NumPy</span>
+              <span>Pandas</span>
+              <span>Matplotlib</span>
+              <span>SciPy</span>
+              <span>scikit-learn</span>
               <span>PyTorch</span>
-              <span>Factor Modeling</span>
-              <span>Bayesian Methods</span>
-              <span>Optimization</span>
+              <span>yfinance</span>
+              <span>Tailwind CSS</span>
+              <span>Excel/VBA</span>
               <span>Git</span>
             </div>
           </div>
