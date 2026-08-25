@@ -1,0 +1,7 @@
+# Legacy URLs from the static build
+/index.html          /              301
+/design.html         /design        301
+/photography.html    /photography   301
+
+# SPA fallback — every other path is handled by the client router
+/*                   /index.html    200

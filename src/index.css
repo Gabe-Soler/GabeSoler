@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* ── DESIGN TOKENS ──
+   Exposed to Tailwind as utilities: bg-bg, text-ink, text-muted, font-sans, … */
+@theme {
+  --color-bg: #fafafa;
+  --color-bg-white: #ffffff;
+  --color-ink: #3f3fff;
+  --color-muted: #777777;
+  --color-light: #999999;
+  --color-accent: #3f3fff;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Matches the two breakpoints the original stylesheet was designed around:
+     mobile <= 640px, tablet 641-900px, desktop >= 901px. */
+  --breakpoint-sm: 641px;
+  --breakpoint-md: 901px;
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --animate-lightbox-in: lightbox-in 0.3s ease;
+
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* ── BASE ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-bg);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Offset in-page anchors so the sticky header never covers a target. */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* ── SHARED UTILITIES ──
+   The handful of values reused often enough that repeating the raw
+   arbitrary-value classes at every call site would be noise. */
+@utility container-x {
+  width: min(1200px, 90vw);
+  margin-inline: auto;
+}
+
+@utility transition-smooth {
+  transition-property: color, background-color, border-color, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: var(--ease-smooth);
+  transition-duration: 0.3s;
+}

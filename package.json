@@ -1,12 +1,23 @@
 {
   "name": "gabe-portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Gabe's Personal Portfolio Website",
-  "main": "index.html",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "live-server"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "live-server": "^1.2.2"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "tailwindcss": "^4.1.0",
+    "vite": "^6.3.0"
   }
-} 
+}
