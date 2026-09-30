@@ -5,9 +5,11 @@ import { useActiveSection } from '../hooks/useActiveSection';
 // Module-level so the observer effect isn't torn down on every render.
 const SECTION_IDS = NAV.filter((item) => item.section).map((item) => item.section);
 
+// On narrow screens the links share the row evenly and the text and padding
+// scale with the viewport, so all four fit without scrolling (down to 320px).
 // 44px tall on touch layouts; the desktop segment uses GSDesign's 7px/13px.
 const segmentLink =
-  'inline-flex min-h-11 shrink-0 items-center rounded-full px-[13px] text-sm leading-none transition-[background-color,color] duration-150 hover:bg-segment-on hover:text-ink lg:min-h-0 lg:py-[9px]';
+  'inline-flex min-h-11 flex-1 items-center justify-center rounded-full px-[clamp(4px,1.6vw,13px)] text-[clamp(12px,3.6vw,14px)] leading-none whitespace-nowrap transition-[background-color,color] duration-150 hover:bg-segment-on hover:text-ink sm:min-h-0 sm:flex-none sm:px-[13px] sm:py-[9px] sm:text-sm';
 
 export function Header() {
   const { pathname } = useLocation();
@@ -26,11 +28,10 @@ export function Header() {
           {SITE.wordmark}
         </Link>
 
-        {/* Below 900px the segment drops to its own full-width row and scrolls
-            sideways, so every destination stays one tap away. */}
+        {/* On phones the segment drops to its own full-width row. */}
         <nav
           aria-label="Primary"
-          className="bg-segment order-last flex w-full gap-[2px] overflow-x-auto rounded-full p-[5px] [scrollbar-width:none] lg:order-none lg:w-auto"
+          className="bg-segment order-last flex w-full gap-[2px] rounded-full p-[5px] sm:order-none sm:w-auto"
         >
           {NAV.map((item) => (
             <Link
