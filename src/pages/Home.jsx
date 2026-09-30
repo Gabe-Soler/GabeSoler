@@ -1,178 +1,99 @@
-import { Link } from 'react-router-dom';
-import { BrandMark, BRAND_FOOTER } from '../components/BrandMark';
-import { Container } from '../components/Container';
-import { Reveal } from '../components/Reveal';
-import { Tag, SkillTag } from '../components/Tag';
-import { Label, LabelMuted, DetailLabel } from '../components/Label';
+import { Card } from '../components/Card';
+import { Hero } from '../components/Hero';
+import { Pill } from '../components/Pill';
+import { Section } from '../components/Section';
 import { EXPERIENCE } from '../data/experience';
 import { PROJECTS } from '../data/projects';
-import { EDUCATION, SITE, SKILLS } from '../site.config';
+import { SITE } from '../site.config';
 
-const arrowLink = 'text-muted transition-smooth hover:text-ink text-[0.82rem] whitespace-nowrap';
+const cardHeading = 'display text-ink text-[20px] leading-[1.25] font-medium';
+const cardText = 'text-text text-[15px] leading-[1.5]';
+const meta = 'text-grey text-sm tabular-nums';
 
 export function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <Reveal as="section" className="pt-14 pb-12 sm:pt-24 sm:pb-20">
-        <Container>
-          <p className="text-muted max-w-[52rem] text-[clamp(1.6rem,3.2vw,2.8rem)] leading-[1.35] font-normal tracking-[-0.01em]">
-            <strong className="text-ink font-normal">
-              Queen's Math and Engineering student focused on AI and Trading.
-            </strong>
-          </p>
-        </Container>
-      </Reveal>
+      <Hero
+        title={
+          <>
+            Hello, I'm <span className="text-signature">Gabe</span>.
+          </>
+        }
+        subtitle="Queen's Math and Engineering student building AI tools and trading strategies. Joining RBC Capital Markets Sales and Trading in May 2027."
+      />
 
       {/* ── EXPERIENCE ── */}
-      <section id="experience" className="py-16">
-        <Container>
-          <div className="pb-8">
-            <Label>Experience</Label>
-          </div>
-
+      <Section id="experience" title="Experience.">
+        <div className="flex flex-col gap-4">
           {EXPERIENCE.map((job) => (
-            <Reveal
+            <Card
               as="article"
               key={`${job.company}-${job.role}`}
-              className="grid grid-cols-1 gap-4 py-8 md:grid-cols-[1fr_1.5fr] md:gap-12"
+              className="grid grid-cols-1 gap-3 md:grid-cols-[1fr_1.5fr] md:gap-10"
             >
               <div>
-                <h3 className="text-ink text-base leading-[1.4] font-medium">{job.role}</h3>
-                <span className="text-muted mt-1 block text-[0.85rem]">{job.company}</span>
-                <span className="text-light mt-2 block text-[0.78rem] tracking-[0.05em] uppercase">
-                  {job.date}
-                </span>
+                <h3 className={cardHeading}>{job.role}</h3>
+                <p className="text-text mt-1 text-[15px]">{job.company}</p>
+                <p className={`${meta} mt-1`}>{job.date}</p>
               </div>
-              <p className="text-muted text-[0.9rem] leading-[1.7]">{job.description}</p>
-            </Reveal>
+              <p className={cardText}>{job.description}</p>
+            </Card>
           ))}
-        </Container>
-      </section>
+        </div>
+      </Section>
 
-      {/* ── FEATURED PROJECTS ── */}
-      <section id="projects" className="pt-12">
-        <Container>
-          <div className="flex flex-col items-start gap-4 pb-8 sm:flex-row sm:items-end sm:justify-between sm:gap-0">
-            <div className="flex flex-col gap-1">
-              <Label>Featured Projects</Label>
-              <LabelMuted>2024 – 2026</LabelMuted>
-            </div>
-            <div className="flex gap-10">
-              <Link to="/#projects" className={arrowLink}>
-                Check all projects →
-              </Link>
-              <Link to="/#contact" className={arrowLink}>
-                Contact Me →
-              </Link>
-            </div>
-          </div>
-
+      {/* ── PROJECTS ── */}
+      <Section id="projects" title="Selected projects.">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {PROJECTS.map((project) => (
-            <Reveal
-              as="article"
-              key={project.title}
-              className="hover:bg-bg-white transition-smooth py-8"
-            >
-              <div className="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:gap-4">
-                <h2 className="text-ink text-[clamp(1.3rem,2.5vw,1.8rem)] leading-[1.2] font-normal tracking-[-0.01em]">
-                  {project.title}
-                </h2>
-                <div className="flex shrink-0 gap-2">
-                  {project.tags.map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
-                  ))}
+            <Card as="article" key={project.title} className="flex flex-col">
+              <p className={meta}>{project.tags.join(' · ')}</p>
+              <h3 className={`${cardHeading} mt-4 mb-[6px]`}>{project.title}</h3>
+              <p className={cardText}>{project.description}</p>
+
+              {(project.footnote || project.link) && (
+                // mt-auto pins the divider to the card bottom so paired cards line up.
+                <div className="mt-auto pt-4">
+                  <div className="border-line-soft flex flex-wrap items-center justify-between gap-3 border-t pt-4">
+                    {project.footnote && (
+                      <span className="text-grey text-[13px]">{project.footnote}</span>
+                    )}
+                    {project.link && <Pill href={project.link.href}>{project.link.label}</Pill>}
+                  </div>
                 </div>
-              </div>
-
-              <p className="text-muted max-w-[60ch] text-[0.9rem] leading-[1.7]">
-                {project.description}
-              </p>
-
-              {project.footnote && (
-                <span className="text-light mt-3 block text-[0.78rem] tracking-[0.05em] uppercase">
-                  {project.footnote}
-                </span>
               )}
-
-              {project.link && (
-                <a
-                  href={project.link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-ink transition-smooth relative mt-3 inline-block text-[0.82rem] font-medium after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-[width] after:duration-300 after:ease-[var(--ease-smooth)] after:content-[''] hover:after:w-full"
-                >
-                  {project.link.label}
-                </a>
-              )}
-            </Reveal>
+            </Card>
           ))}
-        </Container>
-      </section>
-
-      {/* ── ABOUT ── */}
-      <Reveal as="section" id="about" className="pt-24 pb-16">
-        <Container>
-          <div className="grid grid-cols-1 gap-8 pt-8 md:grid-cols-2 md:gap-12">
-            <div className="flex flex-col gap-3">
-              <DetailLabel>Education</DetailLabel>
-              <span className="text-muted text-[0.9rem] leading-[1.6]">{EDUCATION}</span>
-            </div>
-            <div className="flex flex-col gap-3">
-              <DetailLabel>Skills</DetailLabel>
-              <div className="flex flex-wrap gap-[0.4rem]">
-                {SKILLS.map((skill) => (
-                  <SkillTag key={skill}>{skill}</SkillTag>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Reveal>
+        </div>
+        <div className="mt-6">
+          <Pill href={SITE.github}>All projects on GitHub</Pill>
+        </div>
+      </Section>
 
       {/* ── CONTACT ── */}
-      <Reveal as="section" id="contact" className="py-16">
-        <Container>
-          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[auto_1fr] md:gap-16">
-            {/* The wrapper keeps the link inline, so its line boxes pick up the
-                parent's line-height strut exactly as the original markup did. */}
-            <div>
-              <BrandMark size={BRAND_FOOTER} />
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3">
-              <div className="flex flex-col gap-2">
-                <DetailLabel>Email</DetailLabel>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="text-muted transition-smooth text-[0.85rem] hover:text-ink"
-                >
-                  {SITE.email}
-                </a>
-              </div>
-              <div className="flex flex-col gap-2">
-                <DetailLabel>Social</DetailLabel>
-                <a
-                  href={SITE.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-muted transition-smooth text-[0.85rem] hover:text-ink"
-                >
-                  GitHub →
-                </a>
-                <a
-                  href={SITE.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-muted transition-smooth text-[0.85rem] hover:text-ink"
-                >
-                  LinkedIn →
-                </a>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Reveal>
+      <Section id="contact" title="Get in touch.">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <ContactCard label="Email" href={`mailto:${SITE.email}`} value={SITE.email} />
+          <ContactCard label="GitHub" href={SITE.github} value="Gabe-soler" />
+          <ContactCard label="LinkedIn" href={SITE.linkedin} value="gabriel-soler-gs" />
+        </div>
+      </Section>
     </>
+  );
+}
+
+/** The whole card is the link, so the target is the full surface. */
+function ContactCard({ label, href, value }) {
+  const external = href.startsWith('http');
+  return (
+    <a
+      href={href}
+      {...(external && { target: '_blank', rel: 'noreferrer' })}
+      className="bg-card rounded-card block p-6 transition-colors duration-150 hover:bg-card-hover max-[460px]:rounded-[20px] max-[460px]:p-[18px]"
+    >
+      <span className="text-grey block text-sm">{label}</span>
+      <span className="display text-ink mt-4 block text-[20px] font-medium break-all">{value}</span>
+    </a>
   );
 }

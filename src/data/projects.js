@@ -1,4 +1,4 @@
-// `footnote` renders as muted small caps; `link` renders as an underlined arrow link.
+// `footnote` renders in the card's divider row; `link` renders there as a ghost pill.
 export const PROJECTS = [
   {
     title: 'Consensus-Based Portfolio Optimization',
@@ -19,7 +19,7 @@ export const PROJECTS = [
     tags: ['2025', 'Web Development'],
     description:
       'Architected and shipped the competition website with React.js and Tailwind CSS. Scaled registration to support 200+ competitors and 3+ sponsors.',
-    link: { href: 'https://quengcomp.com', label: 'Live Website →' },
+    link: { href: 'https://quengcomp.com', label: 'Visit live site' },
   },
   {
     title: 'FIAM Asset Management Hackathon',

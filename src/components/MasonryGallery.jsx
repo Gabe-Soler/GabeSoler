@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Reveal } from './Reveal';
 import { Lightbox } from './Lightbox';
+import { imageAlt } from './imageAlt';
 
 /**
  * CSS-column masonry grid backed by a full-screen viewer.
@@ -12,33 +12,28 @@ export function MasonryGallery({ images, folder, alt }) {
 
   return (
     <>
-      <div className="columns-1 gap-x-4 sm:columns-2 md:columns-3">
+      <div className="columns-1 gap-x-4 sm:columns-2 lg:columns-3">
         {images.map((image, i) => (
-          <Reveal
-            as="figure"
-            key={image.name}
-            className="group relative mb-4 block cursor-pointer overflow-hidden break-inside-avoid"
-          >
+          <figure key={image.name} className="mb-4 break-inside-avoid">
             <button
               type="button"
-              className="block w-full cursor-pointer"
+              className="rounded-media block w-full cursor-pointer overflow-hidden"
               onClick={() => setOpenIndex(i)}
-              aria-label={`Open image ${i + 1} of ${images.length}`}
             >
               <picture>
                 <source srcSet={`/${folder}/${image.name}.webp`} type="image/webp" />
                 <img
                   src={`/${folder}/${image.name}.jpg`}
-                  alt={alt}
+                  alt={imageAlt(images, i, alt)}
                   width={image.width}
                   height={image.height}
                   loading="lazy"
                   decoding="async"
-                  className="block w-full transition-[transform,filter] duration-500 ease-[var(--ease-smooth)] group-hover:scale-[1.02] group-hover:brightness-[0.92]"
+                  className="bg-media block w-full transition-opacity duration-150 hover:opacity-90"
                 />
               </picture>
             </button>
-          </Reveal>
+          </figure>
         ))}
       </div>
 
