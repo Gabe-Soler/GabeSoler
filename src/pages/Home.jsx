@@ -20,7 +20,7 @@ export function Home() {
             Hello, I'm <span className="text-signature">Gabe</span>.
           </>
         }
-        subtitle="Queen's Math and Engineering student building AI tools and trading strategies. Joining RBC Capital Markets Sales and Trading in May 2027."
+        subtitle="Queen's Mathematics and Engineering Student."
       />
 
       {/* ── EXPERIENCE ── */}
