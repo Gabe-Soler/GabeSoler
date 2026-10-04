@@ -1,5 +1,20 @@
-// `footnote` renders in the card's divider row; `link` renders there as a ghost pill.
+// Newest first. `footnote` renders under the title; `link` renders under the description as a ghost pill.
 export const PROJECTS = [
+  {
+    title: 'FIAM Asset Management Hackathon',
+    tags: ['2026', 'Quantitative Research'],
+    description:
+      "Selected by Professor Evan Jo (Smith School of Business) to represent Queen's University with a long/short equities strategy built around the Consensus-Based Optimizer.",
+    footnote: 'Team Research & Hackathon',
+  },
+  {
+    title: 'RepoWorld',
+    tags: ['2026', 'Software Engineering'],
+    description:
+      'A gamified way to visualize and understand your codebase: explore your repository as a city and fight bugs with Greptile. Built at the Y Combinator hackathon in San Francisco in August 2026, placing 3rd.',
+    footnote: 'Y Combinator Hackathon · 3rd Place',
+    link: { href: 'https://repo-world.vercel.app/', label: 'Visit live site' },
+  },
   {
     title: 'Consensus-Based Portfolio Optimization',
     tags: ['2025', 'Quantitative Research'],
@@ -13,19 +28,5 @@ export const PROJECTS = [
     description:
       'Built an end-to-end statistical pipeline from data cleaning to model evaluation. Processed 2,000+ data points across 5 clubs, achieving R² = 0.87 with < 5% validation MSE and 22% prediction error reduction against linear baseline.',
     footnote: 'Academic Research',
-  },
-  {
-    title: "Queen's Engineering Competition Website",
-    tags: ['2025', 'Web Development'],
-    description:
-      'Architected and shipped the competition website with React.js and Tailwind CSS. Scaled registration to support 200+ competitors and 3+ sponsors.',
-    link: { href: 'https://quengcomp.com', label: 'Visit live site' },
-  },
-  {
-    title: 'FIAM Asset Management Hackathon',
-    tags: ['2026', 'Quantitative Research'],
-    description:
-      "Selected by Professor Evan Jo (Smith School of Business) to represent Queen's University with a long/short equities strategy built around the Consensus-Based Optimizer. Extending the strategy with reinforcement learning and WRDS data to enable hourly dynamic hedging.",
-    footnote: 'Team Research & Hackathon',
   },
 ];

@@ -22,7 +22,7 @@ const META = {
   '/photography': {
     title: 'Photography | Gabriel Soler',
     description:
-      'Photography portfolio of Gabriel Soler — cars, detail, and light.',
+      'Photography portfolio of Gabriel Soler — cars, landscapes, and cities.',
   },
 };
 

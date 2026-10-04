@@ -45,24 +45,28 @@ export function Home() {
 
       {/* ── PROJECTS ── */}
       <Section id="projects" title="Selected projects.">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="flex flex-col gap-4">
           {PROJECTS.map((project) => (
-            <Card as="article" key={project.title} className="flex flex-col">
-              <p className={meta}>{project.tags.join(' · ')}</p>
-              <h3 className={`${cardHeading} mt-4 mb-[6px]`}>{project.title}</h3>
-              <p className={cardText}>{project.description}</p>
-
-              {(project.footnote || project.link) && (
-                // mt-auto pins the divider to the card bottom so paired cards line up.
-                <div className="mt-auto pt-4">
-                  <div className="border-line-soft flex flex-wrap items-center justify-between gap-3 border-t pt-4">
-                    {project.footnote && (
-                      <span className="text-grey text-[13px]">{project.footnote}</span>
-                    )}
-                    {project.link && <Pill href={project.link.href}>{project.link.label}</Pill>}
-                  </div>
-                </div>
-              )}
+            <Card
+              as="article"
+              key={project.title}
+              className="grid grid-cols-1 gap-3 md:grid-cols-[1fr_1.5fr] md:gap-10"
+            >
+              <div>
+                <h3 className={cardHeading}>{project.title}</h3>
+                {project.footnote && (
+                  <p className="text-text mt-1 text-[15px]">{project.footnote}</p>
+                )}
+                <p className={`${meta} mt-1`}>{project.tags.join(' · ')}</p>
+              </div>
+              <div>
+                <p className={cardText}>{project.description}</p>
+                {project.link && (
+                  <Pill href={project.link.href} className="mt-4">
+                    {project.link.label}
+                  </Pill>
+                )}
+              </div>
             </Card>
           ))}
         </div>
