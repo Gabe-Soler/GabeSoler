@@ -1,7 +1,10 @@
 import { Card } from '../components/Card';
+import { ContributionGraph } from '../components/ContributionGraph';
 import { Hero } from '../components/Hero';
 import { Pill } from '../components/Pill';
 import { Section } from '../components/Section';
+import { Tag } from '../components/Tag';
+import CONTRIBUTIONS from '../data/contributions.json';
 import { EXPERIENCE } from '../data/experience';
 import { PROJECTS } from '../data/projects';
 import { SITE } from '../site.config';
@@ -17,6 +20,19 @@ export function Home() {
       <Hero
         title="Hey, I'm Gabe."
         subtitle="Queen's Mathematics and Engineering Student."
+        media={
+          <picture className="shrink-0">
+            <source srcSet="/headshot.webp" type="image/webp" />
+            <img
+              src="/headshot.jpg"
+              alt="Portrait of Gabriel Soler"
+              width={560}
+              height={560}
+              fetchPriority="high"
+              className="block size-[clamp(96px,22vw,240px)] [mask-image:linear-gradient(to_bottom,black_72%,transparent)]"
+            />
+          </picture>
+        }
       />
 
       {/* ── EXPERIENCE ── */}
@@ -70,6 +86,13 @@ export function Home() {
           <Pill href={SITE.github}>All projects on GitHub</Pill>
         </div>
       </Section>
+
+      {/* ── GITHUB ── */}
+      {CONTRIBUTIONS.days.length > 0 && (
+        <Section id="github" title="On GitHub." aside={<Tag>Last 12 months</Tag>}>
+          <ContributionGraph days={CONTRIBUTIONS.days} />
+        </Section>
+      )}
 
       {/* ── CONTACT ── */}
       <Section id="contact" title="Get in touch.">

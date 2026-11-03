@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Daily rebuild so the GitHub contribution graph on the home page stays current.
+  schedule:
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 permissions:

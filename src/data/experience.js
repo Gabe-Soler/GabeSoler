@@ -7,7 +7,7 @@ export const EXPERIENCE = [
       'Scheduled to join the Sales and Trading division for a 4-month internship in Toronto.',
   },
   {
-    role: 'AI Innovation-X Business Analyst',
+    role: 'AI Innovation Intern',
     company: 'RBC Capital Markets',
     date: 'Apr 2026 – Present',
     description:

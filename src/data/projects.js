@@ -1,6 +1,14 @@
 // Newest first. `footnote` renders under the title; `link` renders under the description as a ghost pill.
 export const PROJECTS = [
   {
+    title: 'ArcadiaOS',
+    tags: ['2026', 'Robotics'],
+    description:
+      'An operating system for robot crews building on Mars: it decides which robot does what, when, and with how much power, while Earth supervises across a 4\u2060–\u206024 minute delay and multi-week blackouts. Built in Rust alongside ArcadiaBench, an open, seeded discrete-event simulator of a landing-pad construction site at Arcadia Planitia, and arcadia-protocol, a versioned JSON Schema interface that lets any team plug in a coordinator written in any language.',
+    footnote: 'Open Source · In Progress',
+    link: { href: 'https://github.com/Gabe-Soler/arcadiaos', label: 'View on GitHub' },
+  },
+  {
     title: 'FIAM Asset Management Hackathon',
     tags: ['2026', 'Quantitative Research'],
     description:
@@ -21,12 +29,5 @@ export const PROJECTS = [
     description:
       'Designed a distributed gradient-descent optimizer modeling each stock as an independent agent on a fully connected graph network, converging over 400 iterations to a consensus weight vector. Maintained a Sharpe ratio above 2.0 throughout the backtesting window with positive return skewness of +3.19.',
     footnote: 'Research Project',
-  },
-  {
-    title: 'Bayesian Statistics Research',
-    tags: ['2024', 'Data Science'],
-    description:
-      'Built an end-to-end statistical pipeline from data cleaning to model evaluation. Processed 2,000+ data points across 5 clubs, achieving R² = 0.87 with < 5% validation MSE and 22% prediction error reduction against linear baseline.',
-    footnote: 'Academic Research',
   },
 ];
