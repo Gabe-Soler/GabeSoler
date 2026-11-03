@@ -15,11 +15,7 @@ export function Home() {
     <>
       {/* ── HERO ── */}
       <Hero
-        title={
-          <>
-            Hello, I'm <span className="text-signature">Gabe</span>.
-          </>
-        }
+        title="Hey, I'm Gabe."
         subtitle="Queen's Mathematics and Engineering Student."
       />
 

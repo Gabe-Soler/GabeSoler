@@ -4,8 +4,8 @@ export const PROJECTS = [
     title: 'FIAM Asset Management Hackathon',
     tags: ['2026', 'Quantitative Research'],
     description:
-      "Selected by Professor Evan Jo (Smith School of Business) to represent Queen's University with a long/short equities strategy built around the Consensus-Based Optimizer.",
-    footnote: 'Team Research & Hackathon',
+      "Placed 2nd at the 2026 FIAM Asset Management Hackathon Finals with Team Plutus, advised by Professor Evan Jo (Smith School of Business). Built a market-neutral U.S. equity strategy: a Bayesian model learns which of 147 published stock characteristics still earn a premium, each stock trades as an agent through consensus ADMM only when expected gain beats cost, and a local LLM risk manager reading 8-K filings can only shrink positions ahead of pending events. 11.78% CAGR, 0.80 Sharpe, 0.42 net IR, and 11.3% max drawdown.",
+    footnote: 'Team Plutus · 2nd Place',
   },
   {
     title: 'RepoWorld',
