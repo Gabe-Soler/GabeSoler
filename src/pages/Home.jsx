@@ -73,10 +73,14 @@ export function Home() {
               </div>
               <div>
                 <p className={cardText}>{project.description}</p>
-                {project.link && (
-                  <Pill href={project.link.href} className="mt-4">
-                    {project.link.label}
-                  </Pill>
+                {project.links && (
+                  <div className="mt-4 flex flex-wrap gap-[10px]">
+                    {project.links.map((link) => (
+                      <Pill key={link.href} href={link.href}>
+                        {link.label}
+                      </Pill>
+                    ))}
+                  </div>
                 )}
               </div>
             </Card>

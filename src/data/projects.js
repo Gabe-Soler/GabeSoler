@@ -1,4 +1,4 @@
-// Newest first. `footnote` renders under the title; `link` renders under the description as a ghost pill.
+// Newest first. `footnote` renders under the title; `links` render under the description as ghost pills.
 export const PROJECTS = [
   {
     title: 'ArcadiaOS',
@@ -6,7 +6,10 @@ export const PROJECTS = [
     description:
       'An operating system for robot crews building on Mars: it decides which robot does what, when, and with how much power, while Earth supervises across a 4\u2060–\u206024 minute delay and multi-week blackouts. Built in Rust alongside ArcadiaBench, an open, seeded discrete-event simulator of a landing-pad construction site at Arcadia Planitia, and arcadia-protocol, a versioned JSON Schema interface that lets any team plug in a coordinator written in any language.',
     footnote: 'Open Source · In Progress',
-    link: { href: 'https://github.com/Gabe-Soler/arcadiaos', label: 'View on GitHub' },
+    links: [
+      { href: 'https://gabe-soler.github.io/arcadiabench/viewer/', label: 'Open simulator' },
+      { href: 'https://github.com/Gabe-Soler/arcadiaos', label: 'View on GitHub' },
+    ],
   },
   {
     title: 'FIAM Asset Management Hackathon',
@@ -21,7 +24,7 @@ export const PROJECTS = [
     description:
       'A gamified way to visualize and understand your codebase: explore your repository as a city and fight bugs with Greptile. Built at the Y Combinator hackathon in San Francisco in August 2026, placing 3rd.',
     footnote: 'Y Combinator Hackathon · 3rd Place',
-    link: { href: 'https://repo-world.vercel.app/', label: 'Visit live site' },
+    links: [{ href: 'https://repo-world.vercel.app/', label: 'Visit live site' }],
   },
   {
     title: 'Consensus-Based Portfolio Optimization',
