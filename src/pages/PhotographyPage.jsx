@@ -1,8 +1,8 @@
 import { Hero } from '../components/Hero';
 import { MasonryGallery } from '../components/MasonryGallery';
-import { Pill } from '../components/Pill';
 import { Section } from '../components/Section';
 import { Tag } from '../components/Tag';
+import { TextLink } from '../components/TextLink';
 import { PHOTO_CATEGORIES, PHOTOS, PHOTOS_FOLDER } from '../data/photos';
 
 /** One masonry section per category, with jump links in the hero. */
@@ -16,9 +16,9 @@ export function PhotographyPage() {
           <>
             <Tag>{`${PHOTOS.length} photographs`}</Tag>
             {PHOTO_CATEGORIES.map((category) => (
-              <Pill key={category.id} to={`#${category.id}`}>
+              <TextLink key={category.id} to={`#${category.id}`}>
                 {category.title}
-              </Pill>
+              </TextLink>
             ))}
           </>
         }

@@ -1,6 +1,6 @@
 /**
  * Page opener, left-aligned on the same edge as the section content below.
- * `actions` is a row of pills (one primary at most); `children` follow it.
+ * `actions` is a row of text links and summary text; `children` follow it.
  * `media` (such as a portrait) sits to the right of the title and subtitle.
  */
 export function Hero({ title, subtitle, actions, media, children }) {
@@ -17,7 +17,7 @@ export function Hero({ title, subtitle, actions, media, children }) {
           {media}
         </div>
         {actions && (
-          <div className="mt-[clamp(24px,3.4vw,34px)] flex flex-wrap items-center gap-[10px]">
+          <div className="mt-[clamp(20px,3vw,28px)] flex flex-wrap items-center gap-x-6">
             {actions}
           </div>
         )}

@@ -1,5 +1,3 @@
-import { Card } from './Card';
-
 // GitHub's five levels in ink, so the graph stays monochrome in both appearances.
 const LEVELS = ['bg-line', 'bg-ink/20', 'bg-ink/40', 'bg-ink/70', 'bg-ink'];
 
@@ -47,7 +45,7 @@ export function ContributionGraph({ days }) {
   ];
 
   return (
-    <Card>
+    <div>
       <div
         role="img"
         aria-label={`${total} GitHub contributions in the last year`}
@@ -99,6 +97,6 @@ export function ContributionGraph({ days }) {
           </div>
         ))}
       </dl>
-    </Card>
+    </div>
   );
 }
