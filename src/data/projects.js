@@ -13,6 +13,7 @@ export const PROJECTS = [
     links: [
       { href: 'https://gabe-soler.github.io/arcadiabench/viewer/', label: 'simulator' },
       { href: 'https://github.com/Gabe-Soler/arcadiaos', label: 'github' },
+      { href: 'https://pypi.org/project/arcadiabench/', label: 'pypi' },
     ],
   },
   {
