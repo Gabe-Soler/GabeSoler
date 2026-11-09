@@ -5,7 +5,7 @@ import { imageAlt } from './imageAlt';
 // White pills on the dark scrim. The viewer stays dark in both appearances so
 // the work, not the chrome, carries the colour.
 const control =
-  'absolute z-1001 inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-sm leading-none font-medium text-[#12110d] transition-[background-color,border-color] duration-150 hover:border-[#c4c4c4] hover:bg-[#f2f2f2]';
+  'absolute z-1001 inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-sm leading-none font-medium text-[#14213d] transition-[background-color,border-color] duration-150 hover:border-[#c4c4c4] hover:bg-[#f2f2f2]';
 
 // Horizontal travel, in px, before a pointer drag counts as a swipe.
 const SWIPE_THRESHOLD = 50;
@@ -71,7 +71,7 @@ export function Lightbox({ images, folder, alt, index, onChange, onClose }) {
   return (
     <div
       ref={dialogRef}
-      className="animate-fade-in fixed inset-0 z-1000 flex touch-pan-y items-center justify-center bg-[rgb(18_17_13/0.94)]"
+      className="animate-fade-in fixed inset-0 z-1000 flex touch-pan-y items-center justify-center bg-[rgb(20_33_61/0.94)]"
       role="dialog"
       aria-modal="true"
       aria-label="Photo viewer"

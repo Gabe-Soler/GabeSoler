@@ -1,23 +1,49 @@
-import { SITE } from '../site.config';
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { MORE, SITE } from '../site.config';
 
-const footLink = 'transition-colors duration-150 hover:text-ink';
+/* global __BUILD__ */
+const BUILD = typeof __BUILD__ === 'undefined' ? {} : __BUILD__;
+const buildDate = BUILD.date
+  ? new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(new Date(BUILD.date)).toLowerCase()
+  : null;
+
+const LINKS = [
+  { label: 'github', href: SITE.github },
+  { label: 'linkedin', href: SITE.linkedin },
+  { label: 'email', href: `mailto:${SITE.email}` },
+  ...MORE,
+];
 
 export function Footer() {
   return (
-    <footer className="section-y">
-      <div className="wrap">
-        <div className="border-line text-grey flex flex-wrap justify-between gap-x-6 gap-y-2 border-t pt-[26px] pb-[max(34px,env(safe-area-inset-bottom))] text-[13px]">
-          <p>&copy; {new Date().getFullYear()} {SITE.name}</p>
-          <p className="flex flex-wrap gap-x-4">
-            <a className={footLink} href={SITE.github} target="_blank" rel="noreferrer">
-              GitHub
-            </a>
-            <a className={footLink} href={SITE.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </p>
-        </div>
-      </div>
+    <footer className="wrap text-grey mt-12 pb-[max(48px,env(safe-area-inset-bottom))] text-sm">
+      <p className="flex flex-wrap gap-y-1">
+        {LINKS.map((item, i) => (
+          <Fragment key={item.label}>
+            {i > 0 && (
+              <span aria-hidden="true" className="px-3">
+                /
+              </span>
+            )}
+            {item.to ? (
+              <Link className="link" to={item.to}>
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                className="link"
+                href={item.href}
+                {...(item.href.startsWith('http') && { target: '_blank', rel: 'noreferrer' })}
+              >
+                {item.label}
+              </a>
+            )}
+          </Fragment>
+        ))}
+      </p>
+
+      {buildDate && <p className="mt-4">last updated: {buildDate}</p>}
     </footer>
   );
 }

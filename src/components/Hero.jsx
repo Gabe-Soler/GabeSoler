@@ -1,27 +1,14 @@
 /**
- * Page opener, left-aligned on the same edge as the section content below.
- * `actions` is a row of text links and summary text; `children` follow it.
- * `media` (such as a portrait) sits to the right of the title and subtitle.
+ * Opener for the secondary pages, under the name in the header: a title, a
+ * line of text, and an optional row of links and summary text.
  */
-export function Hero({ title, subtitle, actions, media, children }) {
+export function Hero({ title, subtitle, actions }) {
   return (
-    <section className="pt-[clamp(44px,7vw,92px)] pb-[clamp(26px,5vw,58px)]">
+    <section className="section-y">
       <div className="wrap">
-        <div className="flex items-center justify-between gap-[clamp(16px,4vw,48px)]">
-          <div className="min-w-0">
-            <h1 className="display text-ink mb-[22px] max-w-[660px] text-[clamp(34px,6.6vw,64px)] leading-none font-normal tracking-[-0.04em]">
-              {title}
-            </h1>
-            <p className="text-grey max-w-[620px] text-[clamp(16px,2.2vw,18px)]">{subtitle}</p>
-          </div>
-          {media}
-        </div>
-        {actions && (
-          <div className="mt-[clamp(20px,3vw,28px)] flex flex-wrap items-center gap-x-6">
-            {actions}
-          </div>
-        )}
-        {children}
+        <h1 className="text-ink mb-2 text-xl font-bold">{title}</h1>
+        <p className="text-ink">{subtitle}</p>
+        {actions && <div className="mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-1">{actions}</div>}
       </div>
     </section>
   );

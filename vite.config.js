@@ -27,4 +27,8 @@ function spaFallback() {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), spaFallback()],
+  // Build time, shown in the footer as "last updated".
+  define: {
+    __BUILD__: JSON.stringify({ date: new Date().toISOString() }),
+  },
 });

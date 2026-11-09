@@ -1,41 +1,29 @@
 @import "tailwindcss";
 
-/* ── DESIGN TOKENS (GSDesign) ──
-   Exposed to Tailwind as utilities: bg-card, text-ink, text-grey, font-display, … */
+/* ── DESIGN TOKENS ──
+   Navy ink on near-white tan paper, one narrow text column. Exposed to Tailwind as
+   utilities: text-ink, text-grey, bg-bg, border-line, … */
 @theme {
-  /* ink & text */
-  --color-ink: #12110d;
-  --color-text: #4a4a4a;
-  --color-muted: #434343;
-  --color-grey: #6b6b6b; /* 5.33:1 on white, 4.97:1 on card */
+  /* ink & text: navy. ink 14.7:1 on bg, grey 6.4:1 */
+  --color-ink: #14213d;
+  --color-text: #14213d;
+  --color-grey: #4b5a78;
 
-  /* lines */
-  --color-line: #e5e5e5;
-  --color-line-soft: #ececec;
-  --color-line-hover: #c4c4c4;
+  /* lines: darker tan, for link underlines and the footer rule */
+  --color-line: #d8ccb4;
+  --color-line-hover: #14213d;
 
-  /* surfaces: plain page, no cards. `media` only shows behind images while they load. */
-  --color-bg: #ffffff;
-  --color-media: #e9e9e9;
+  /* surfaces: tan page. `media` only shows behind images while they load. */
+  --color-bg: #f9f5ec;
+  --color-media: #efe8da;
 
-  /* Accent: forest green, used as link text. #228b22 itself is only 4.39:1
-     on white, so links use a slightly deeper shade: 5.1:1, hover 6.38:1. */
-  --color-accent: #1f7f1f;
-  --color-accent-hover: #1a6e1a;
-  /* The original site's electric blue, kept for the name in the hero. 6.24:1. */
-  --color-signature: #3f3fff;
-  --color-accent-ring: rgb(34 139 34 / 0.3);
+  --color-ring: rgb(20 33 61 / 0.35);
 
-  --font-display: 'Manrope', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Tagline and metadata: dates, repo details, build info. */
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --radius-media: 16px;
-
-  /* GSDesign breakpoints: grids collapse at 760px, the nav segment moves to
-     its own row at 900px. sm (641px) stays for the small tweaks. */
-  --breakpoint-sm: 641px;
-  --breakpoint-md: 761px;
-  --breakpoint-lg: 901px;
+  --radius-media: 6px;
 
   --animate-fade-in: fade-in 0.25s ease;
 
@@ -46,30 +34,10 @@
   }
 }
 
-/* ── DARK APPEARANCE ──
-   Follows the system setting; there is no in-page toggle. The page inverts and
-   the accent lightens to #3cb43c. grey on bg 6.84:1. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-ink: #f4f2ed;
-    --color-text: #c9c7c1;
-    --color-muted: #c4c2bc;
-    --color-grey: #9a9a96;
-    --color-line: #2a2a28;
-    --color-line-soft: #242422;
-    --color-line-hover: #45453f;
-    --color-bg: #0e0e0c;
-    --color-media: #242422;
-    --color-accent: #3cb43c;
-    --color-accent-hover: #5cc45c;
-    --color-signature: #8f8fff;
-  }
-}
-
 /* ── BASE ── */
 @layer base {
   html {
-    color-scheme: light dark;
+    color-scheme: light;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
@@ -98,31 +66,50 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Offset in-page anchors so the sticky header never covers a target. */
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+  }
+
   :target {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 2rem;
   }
 
   :focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px var(--color-accent-ring);
+    box-shadow: 0 0 0 3px var(--color-ring);
+    border-radius: 2px;
   }
 }
 
 /* ── SHARED UTILITIES ── */
+
+/* One column: 896px wide with deep side padding, so text runs about 700px. */
 @utility wrap {
-  max-width: 1040px;
+  max-width: 896px;
   margin-inline: auto;
-  padding-left: max(20px, env(safe-area-inset-left));
-  padding-right: max(20px, env(safe-area-inset-right));
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+
+  @media (width >= 48rem) {
+    padding-inline: 48px;
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: 96px;
+  }
 }
 
 @utility section-y {
-  padding-top: clamp(64px, 10vw, 120px);
+  padding-top: 2rem;
 }
 
+/* Inline link: a thin tan underline that turns navy on hover. */
+@utility link {
+  border-bottom: 1px solid var(--color-line);
+  transition: border-color 0.15s;
 
-@utility display {
-  font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  &:hover {
+    border-color: var(--color-line-hover);
+  }
 }

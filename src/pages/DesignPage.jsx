@@ -4,7 +4,7 @@ import { DESIGNS, DESIGNS_ALT, DESIGNS_FOLDER } from '../data/designs';
 export function DesignPage() {
   return (
     <GalleryPage
-      title="Graphic design."
+      title="graphic design"
       subtitle="Posters, branding, and type. The FusionFrame and CTRL X series."
       unit="pieces"
       images={DESIGNS}

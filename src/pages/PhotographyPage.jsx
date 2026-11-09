@@ -10,14 +10,14 @@ export function PhotographyPage() {
   return (
     <>
       <Hero
-        title="Photography."
+        title="photography"
         subtitle="Cars, landscapes, and cities. Personal work."
         actions={
           <>
-            <Tag>{`${PHOTOS.length} photographs`}</Tag>
+            <Tag>{`${PHOTOS.length} photos:`}</Tag>
             {PHOTO_CATEGORIES.map((category) => (
               <TextLink key={category.id} to={`#${category.id}`}>
-                {category.title}
+                {category.title.toLowerCase()}
               </TextLink>
             ))}
           </>
@@ -28,8 +28,8 @@ export function PhotographyPage() {
         <Section
           key={category.id}
           id={category.id}
-          title={`${category.title}.`}
-          aside={<Tag>{`${category.photos.length} photographs`}</Tag>}
+          title={category.title.toLowerCase()}
+          aside={<Tag>{`${category.photos.length} photos`}</Tag>}
         >
           <MasonryGallery images={category.photos} folder={PHOTOS_FOLDER} alt={category.alt} />
         </Section>

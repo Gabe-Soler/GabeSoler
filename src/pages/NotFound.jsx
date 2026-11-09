@@ -4,12 +4,10 @@ import { TextLink } from '../components/TextLink';
 export function NotFound() {
   return (
     <Hero
-      title="Page not found."
+      title="page not found"
       subtitle="It may have moved or been renamed. Everything is still one click from home."
       actions={
-        <TextLink to="/" variant="primary">
-          Back to home
-        </TextLink>
+        <TextLink to="/">back to home</TextLink>
       }
     />
   );
