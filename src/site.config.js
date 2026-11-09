@@ -2,8 +2,8 @@
 export const SITE = {
   name: 'Gabriel Soler',
   // Masthead: the name, then a one-line monospace tagline under it.
-  wordmark: 'gabe soler',
-  tagline: "math and engineering @ queen's",
+  wordmark: 'Gabe Soler',
+  tagline: "Math and Engineering @ Queen's",
   email: 'Gabe.Soler@queensu.ca',
   github: 'https://github.com/Gabe-soler',
   linkedin: 'https://linkedin.com/in/gabriel-soler-gs',
