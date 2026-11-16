@@ -1,8 +1,16 @@
-// Newest first. Rendered as "> title — summary" with the points as smaller
-// sub-bullets. `href` links the title; `links` go on a last line of their own.
+// The Projects section's subheadings, in display order.
+export const PROJECT_GROUPS = [
+  { id: 'hackathons', title: 'Hackathons' },
+  { id: 'independent', title: 'Independent Projects' },
+  { id: 'research', title: 'School Research' },
+];
+
+// Newest first within each group. Rendered as "> title — summary" with the points
+// as smaller sub-bullets. `href` links the title; `links` go on a last line of their own.
 export const PROJECTS = [
   {
     title: 'ArcadiaOS',
+    group: 'independent',
     href: 'https://gabe-soler.github.io/arcadiabench/viewer/',
     summary: 'an operating system for robot crews building on Mars',
     points: [
@@ -18,6 +26,7 @@ export const PROJECTS = [
   },
   {
     title: 'FIAM Asset Management Hackathon',
+    group: 'hackathons',
     summary: 'a market-neutral U.S. equity strategy with an LLM risk manager',
     points: [
       '2nd place at the 2026 finals with Team Plutus, advised by Professor Evan Jo (Smith School of Business)',
@@ -28,12 +37,14 @@ export const PROJECTS = [
   },
   {
     title: 'RepoWorld',
+    group: 'hackathons',
     href: 'https://repo-world.vercel.app/',
     summary: 'explore your codebase as a city and fight bugs with Greptile',
     points: ['3rd place at the Y Combinator hackathon, San Francisco, August 2026'],
   },
   {
     title: 'Consensus-Based Portfolio Optimization',
+    group: 'research',
     summary: 'a distributed optimizer that treats each stock as an agent',
     points: [
       'Gradient descent across a fully connected graph of stock agents, converging to a consensus weight vector over 400 iterations',

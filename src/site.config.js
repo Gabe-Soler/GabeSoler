@@ -16,9 +16,6 @@ export const NOW = [
   'Incoming Sales & Trading summer analyst @ RBC (May 2027)',
 ];
 
-// Repos outside your own account (e.g. team repos) that "recently on github" always shows.
-export const EXTRA_REPOS = ['quanttqueensu/LS_Gamma'];
-
 // Secondary pages, linked from the footer.
 export const MORE = [
   { label: 'photography', to: '/photography' },

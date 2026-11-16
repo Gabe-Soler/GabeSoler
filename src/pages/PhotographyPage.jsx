@@ -10,7 +10,7 @@ export function PhotographyPage() {
   return (
     <>
       <Hero
-        title="photography"
+        title="Photography"
         subtitle="Cars, landscapes, and cities. Personal work."
         actions={
           <>
@@ -28,7 +28,7 @@ export function PhotographyPage() {
         <Section
           key={category.id}
           id={category.id}
-          title={category.title.toLowerCase()}
+          title={category.title}
           aside={<Tag>{`${category.photos.length} photos`}</Tag>}
         >
           <MasonryGallery images={category.photos} folder={PHOTOS_FOLDER} alt={category.alt} />

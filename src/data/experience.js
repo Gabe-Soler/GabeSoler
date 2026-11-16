@@ -1,38 +1,48 @@
 // Newest first. Rendered as "> role @ company — date" with the points as smaller sub-bullets.
+// An entry with `roles` instead is one company block, like LinkedIn, with each role
+// under it, newest first.
 export const EXPERIENCE = [
   {
-    role: 'Global Markets Program Summer Analyst',
     company: 'RBC Capital Markets',
-    date: 'May 2027',
-    points: ['Incoming: Sales and Trading division, a 4-month internship in Toronto'],
-  },
-  {
-    role: 'AI Innovation Intern',
-    company: 'RBC Capital Markets',
-    date: 'Apr 2026 – Aug 2026',
-    points: [
-      'Co-created and led Bridge AI, a forward-deployed engineering initiative bridging AI talent and SMEs; presented results and vision to 120 employees',
-      'Built the Operational Risk Prompt Library, a central database for AI prompts, agents, and products, later adopted at the LOB level',
-      'Developed Seshat, an AI chatbot that routes employees to the right AI solution for their problem',
+    date: 'May 2026 – May 2027',
+    roles: [
+      {
+        role: 'Global Markets Program Summer Analyst',
+        date: 'May 2027',
+        points: ['Incoming: Sales and Trading division, a 4-month internship in Toronto'],
+      },
+      {
+        role: 'AI Innovation Intern',
+        date: 'May 2026 – Aug 2026',
+        points: [
+          'Co-created and led Bridge AI, a forward-deployed engineering initiative bridging AI talent and SMEs; presented results and vision to 120 employees',
+          'Built the Operational Risk Prompt Library, a central database for AI prompts, agents, and products, later adopted at the LOB level',
+          'Developed Seshat, an AI chatbot that routes employees to the right AI solution for their problem',
+        ],
+      },
     ],
   },
   {
-    role: 'Portfolio Manager, Long/Short Gamma Desk',
     company: 'QUANTT',
-    date: 'Apr 2026 – Present',
-    points: [
-      'Designing a long/short gamma strategy using GARCH and HAR volatility forecasts to capture the volatility risk premium',
-      'Building options trading infrastructure that ingests real-time CBOE data and historical WRDS and yfinance data through a multi-threaded pipeline',
-    ],
-  },
-  {
-    role: 'Quantitative Analyst',
-    company: 'QUANTT',
-    date: 'Sep 2025 – Apr 2026',
-    points: [
-      '2nd of 17 teams at the 2026 National Bank of Canada x QUANTT Trading Competition',
-      'Built a sleeve-level beta neutralization framework that cut annualized volatility by 70% vs. the S&P 500',
-      'Designed the Consensus-Based Optimizer (CBO), holding a Sharpe ratio above 2.0 throughout backtesting',
+    date: 'Sep 2025 – Present',
+    roles: [
+      {
+        role: 'Portfolio Manager, Long/Short Gamma Desk',
+        date: 'Apr 2026 – Present',
+        points: [
+          'Designing a long/short gamma strategy using GARCH and HAR volatility forecasts to capture the volatility risk premium',
+          'Building options trading infrastructure that ingests real-time CBOE data and historical WRDS and yfinance data through a multi-threaded pipeline',
+        ],
+      },
+      {
+        role: 'Quantitative Analyst',
+        date: 'Sep 2025 – Apr 2026',
+        points: [
+          '2nd of 17 teams at the 2026 National Bank of Canada x QUANTT Trading Competition',
+          'Built a sleeve-level beta neutralization framework that cut annualized volatility by 70% vs. the S&P 500',
+          'Designed the Consensus-Based Optimizer (CBO), holding a Sharpe ratio above 2.0 throughout backtesting',
+        ],
+      },
     ],
   },
   {
