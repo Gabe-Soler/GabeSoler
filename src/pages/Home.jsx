@@ -3,6 +3,7 @@ import { Section } from '../components/Section';
 import { TextLink } from '../components/TextLink';
 import CONTRIBUTIONS from '../data/contributions.json';
 import { EXPERIENCE } from '../data/experience';
+import { PAPERS } from '../data/papers';
 import { PROJECT_GROUPS, PROJECTS } from '../data/projects';
 import { NOW, SITE } from '../site.config';
 
@@ -57,6 +58,19 @@ export function Home() {
           more on <TextLink href={SITE.github}>github</TextLink>
           {contributions > 0 && `: ${contributions.toLocaleString('en-US')} contributions in the last year`}
         </p>
+      </Section>
+
+      <Section id="reading" title="Currently Reading">
+        <List>
+          {PAPERS.map((paper) => (
+            <Item key={paper.href}>
+              <TextLink href={paper.href}>{paper.title}</TextLink>{' '}
+              <span className={muted}>
+                — {paper.authors}, {paper.year}
+              </span>
+            </Item>
+          ))}
+        </List>
       </Section>
     </>
   );
