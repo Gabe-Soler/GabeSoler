@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { MORE, SITE } from '../site.config';
+import { SITE } from '../site.config';
 
 /* global __BUILD__ */
 const BUILD = typeof __BUILD__ === 'undefined' ? {} : __BUILD__;
@@ -12,7 +11,6 @@ const LINKS = [
   { label: 'github', href: SITE.github },
   { label: 'linkedin', href: SITE.linkedin },
   { label: 'email', href: `mailto:${SITE.email}` },
-  ...MORE,
 ];
 
 export function Footer() {
@@ -26,19 +24,13 @@ export function Footer() {
                 /
               </span>
             )}
-            {item.to ? (
-              <Link className="link" to={item.to}>
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                className="link"
-                href={item.href}
-                {...(item.href.startsWith('http') && { target: '_blank', rel: 'noreferrer' })}
-              >
-                {item.label}
-              </a>
-            )}
+            <a
+              className="link"
+              href={item.href}
+              {...(item.href.startsWith('http') && { target: '_blank', rel: 'noreferrer' })}
+            >
+              {item.label}
+            </a>
           </Fragment>
         ))}
       </p>

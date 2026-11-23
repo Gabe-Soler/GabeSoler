@@ -15,9 +15,3 @@ export const NOW = [
   'Building ArcadiaOS, a Rust OS for robot crews on Mars',
   'Incoming Sales & Trading summer analyst @ RBC (May 2027)',
 ];
-
-// Secondary pages, linked from the footer.
-export const MORE = [
-  { label: 'photography', to: '/photography' },
-  { label: 'design', to: '/design' },
-];
