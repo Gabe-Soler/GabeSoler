@@ -27,7 +27,7 @@ export function Header() {
         {isHome && (
           <picture className="shrink-0">
             <source srcSet="/headshot.webp" type="image/webp" />
-            {/* Multiply turns the photo's white background into the page's tan. */}
+            {/* Multiply turns the photo's white background into the page (a no-op on white, kept in case the background changes). */}
             <img
               src="/headshot.jpg"
               alt="Portrait of Gabriel Soler"

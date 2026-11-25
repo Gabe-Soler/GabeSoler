@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ── DESIGN TOKENS ──
-   Navy ink on near-white tan paper, one narrow text column. Exposed to Tailwind as
+   Navy ink on white paper, one narrow text column. Exposed to Tailwind as
    utilities: text-ink, text-grey, bg-bg, border-line, … */
 @theme {
   /* ink & text: navy. ink 14.7:1 on bg, grey 6.4:1 */
@@ -9,13 +9,13 @@
   --color-text: #14213d;
   --color-grey: #4b5a78;
 
-  /* lines: darker tan, for link underlines and the footer rule */
-  --color-line: #d8ccb4;
+  /* lines: soft grey-blue, for link underlines and the footer rule */
+  --color-line: #d3d9e3;
   --color-line-hover: #14213d;
 
-  /* surfaces: tan page. `media` only shows behind images while they load. */
-  --color-bg: #f9f5ec;
-  --color-media: #efe8da;
+  /* surfaces: white page. `media` only shows behind images while they load. */
+  --color-bg: #ffffff;
+  --color-media: #f1f3f6;
 
   --color-ring: rgb(20 33 61 / 0.35);
 
@@ -104,7 +104,7 @@
   padding-top: 2.75rem;
 }
 
-/* Inline link: a thin tan underline that turns navy on hover. */
+/* Inline link: a thin grey underline that turns navy on hover. */
 @utility link {
   border-bottom: 1px solid var(--color-line);
   transition: border-color 0.15s;
