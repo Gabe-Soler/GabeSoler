@@ -13,12 +13,16 @@ export const PROJECTS = [
     title: 'GMUX',
     group: 'independent',
     date: 'Nov 2026 – Present',
-    href: 'https://github.com/Gabe-Soler/GMUX',
+    href: 'https://gabe-soler.github.io/GMUX/',
     summary: 'A fork of the cmux terminal for watching AI coding agents work',
     points: [
       'Adds a VS Code-style file explorer that follows the focused terminal, colours files by git status, and marks files an agent recently edited',
       'Follow-agent mode opens each file an agent touches beside its terminal as a live diff, line by line',
       'Written in Swift, with a CLI so agents and scripts can drive the explorer',
+    ],
+    links: [
+      { href: 'https://gabe-soler.github.io/GMUX/', label: 'site' },
+      { href: 'https://github.com/Gabe-Soler/GMUX', label: 'github' },
     ],
   },
   {
