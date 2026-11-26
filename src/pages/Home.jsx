@@ -3,70 +3,78 @@ import { Section } from '../components/Section';
 import { TextLink } from '../components/TextLink';
 import CONTRIBUTIONS from '../data/contributions.json';
 import { EXPERIENCE } from '../data/experience';
-import { PAPERS } from '../data/papers';
+import { INTERESTS } from '../data/interests';
 import { PROJECT_GROUPS, PROJECTS } from '../data/projects';
 import { NOW, SITE } from '../site.config';
 
-const muted = 'text-grey text-sm';
-const date = 'text-grey shrink-0 font-mono text-xs whitespace-nowrap';
+const muted = 'text-sm';
+const date = 'font-mono text-xs';
 
 export function Home() {
   const contributions = CONTRIBUTIONS.days.reduce((sum, day) => sum + day.count, 0);
 
   return (
     <>
-      <Section id="now" title="What I'm Up To">
+      <Section id="now" title="Currently">
         <List>
-          {NOW.map((item) => (
-            <Item key={item}>{item}</Item>
-          ))}
+          {NOW.map((item) =>
+            typeof item === 'string' ? (
+              <Item key={item}>{item}</Item>
+            ) : (
+              <Item key={item.text}>
+                {item.text}{' '}
+                {item.links.map((link, i) => (
+                  <span key={link.href}>
+                    {i > 0 && ', '}
+                    <TextLink href={link.href}>{link.label}</TextLink>
+                  </span>
+                ))}
+              </Item>
+            )
+          )}
         </List>
       </Section>
 
       <Section id="fun" title="On The Side">
         <List>
           <Item>
-            <TextLink to="/photography">Photography</TextLink> <span className={muted}>· cars, landscapes, and cities</span>
+            <TextLink to="/photography">Photography</TextLink>
           </Item>
           <Item>
-            <TextLink to="/design">Graphic Design</TextLink> <span className={muted}>· posters, branding, and type</span>
+            <TextLink to="/design">Graphic Design</TextLink>
           </Item>
         </List>
       </Section>
 
       <Section id="experience" title="Experience">
-        <List className="space-y-6">
+        <List className="space-y-5">
           {EXPERIENCE.map((job) => (
             <Job key={`${job.company}-${job.role ?? 'roles'}`} job={job} />
           ))}
         </List>
       </Section>
 
-      <Section id="projects" title="Projects">
-        <div className="space-y-8">
-          {PROJECT_GROUPS.map((group) => (
-            <div key={group.id}>
-              <h3 className="text-grey mb-3 text-sm font-medium">{group.title}</h3>
-              <List className="ml-4 space-y-6">
-                {PROJECTS.filter((project) => project.group === group.id).map((project) => (
-                  <Project key={project.title} project={project} />
-                ))}
-              </List>
-            </div>
-          ))}
-        </div>
-        <p className={`${muted} mt-8`}>
-          more on <TextLink href={SITE.github}>github</TextLink>
-          {contributions > 0 && `: ${contributions.toLocaleString('en-US')} contributions in the last year`}
-        </p>
-      </Section>
+      {PROJECT_GROUPS.map((group, i) => (
+        <Section key={group.id} id={group.id} title={group.title}>
+          <List className="space-y-5">
+            {PROJECTS.filter((project) => project.group === group.id).map((project) => (
+              <Project key={project.title} project={project} />
+            ))}
+          </List>
+          {i === PROJECT_GROUPS.length - 1 && (
+            <p className={`${muted} mt-6`}>
+              more on <TextLink href={SITE.github}>github</TextLink>
+              {contributions > 0 && `: ${contributions.toLocaleString('en-US')} contributions in the last year`}
+            </p>
+          )}
+        </Section>
+      ))}
 
-      <Section id="reading" title="Currently Reading">
-        <List className="space-y-3">
-          {PAPERS.map((paper) => (
-            <Item key={paper.href}>
-              <Head title={<TextLink href={paper.href}>{paper.title}</TextLink>} date={paper.year} />
-              <p className={muted}>{paper.authors}</p>
+      <Section id="interests" title="Interested In">
+        <List>
+          {INTERESTS.map((interest) => (
+            <Item key={interest.title}>
+              {interest.href ? <TextLink href={interest.href}>{interest.title}</TextLink> : interest.title}
             </Item>
           ))}
         </List>
@@ -75,20 +83,16 @@ export function Home() {
   );
 }
 
-/** One entry's first line: title (and badge) on the left, date on the right. On phones the date sits under it. */
-function Head({ title, badge, date: when, className = '' }) {
+/** One entry's first line: bold title and badge, with the date on its own line under it. */
+function Head({ title, badge, date: when }) {
   return (
-    <div className={`flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-4 ${className}`}>
-      <p className="min-w-0">
+    <>
+      <p className="font-bold">
         {title}
-        {badge && (
-          <span className="bg-ink text-bg ml-2 inline-block rounded-[3px] px-1.5 py-px align-[1px] text-xs leading-[1.4] font-medium whitespace-nowrap">
-            {badge}
-          </span>
-        )}
+        {badge && <span className="bg-ink text-bg ml-2 px-1 text-xs font-normal whitespace-nowrap">{badge}</span>}
       </p>
-      {when && <span className={date}>{when}</span>}
-    </div>
+      {when && <p className={date}>{when}</p>}
+    </>
   );
 }
 
@@ -107,10 +111,10 @@ function Job({ job }) {
   return (
     <Item>
       <Head title={job.company} date={job.date} />
-      <div className="border-line mt-2 space-y-4 border-l pl-4">
+      <div className="mt-2 space-y-3 border-l pl-3">
         {job.roles.map((role) => (
           <div key={role.role}>
-            <Head title={<span className="text-[15px]">{role.role}</span>} date={role.date} />
+            <Head title={role.role} date={role.date} />
             <SubList items={role.points} />
           </div>
         ))}

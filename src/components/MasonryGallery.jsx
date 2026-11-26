@@ -12,12 +12,12 @@ export function MasonryGallery({ images, folder, alt }) {
 
   return (
     <>
-      <div className="columns-1 gap-x-4 sm:columns-2 lg:columns-3">
+      <div className="columns-1 gap-x-3 sm:columns-2">
         {images.map((image, i) => (
-          <figure key={image.name} className="mb-4 break-inside-avoid">
+          <figure key={image.name} className="mb-3 break-inside-avoid">
             <button
               type="button"
-              className="rounded-media block w-full cursor-pointer overflow-hidden"
+              className="block w-full cursor-pointer"
               onClick={() => setOpenIndex(i)}
             >
               <picture>
@@ -29,7 +29,7 @@ export function MasonryGallery({ images, folder, alt }) {
                   height={image.height}
                   loading="lazy"
                   decoding="async"
-                  className="bg-media block w-full transition-opacity duration-150 hover:opacity-90"
+                  className="block w-full"
                 />
               </picture>
             </button>

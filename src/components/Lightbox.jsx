@@ -5,7 +5,7 @@ import { imageAlt } from './imageAlt';
 // White pills on the dark scrim. The viewer stays dark in both appearances so
 // the work, not the chrome, carries the colour.
 const control =
-  'absolute z-1001 inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-sm leading-none font-medium text-[#14213d] transition-[background-color,border-color] duration-150 hover:border-[#c4c4c4] hover:bg-[#f2f2f2]';
+  'absolute z-1001 inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center border border-white bg-black text-sm leading-none text-white hover:bg-white hover:text-black';
 
 // Horizontal travel, in px, before a pointer drag counts as a swipe.
 const SWIPE_THRESHOLD = 50;
@@ -71,7 +71,7 @@ export function Lightbox({ images, folder, alt, index, onChange, onClose }) {
   return (
     <div
       ref={dialogRef}
-      className="animate-fade-in fixed inset-0 z-1000 flex touch-pan-y items-center justify-center bg-[rgb(20_33_61/0.94)]"
+      className="fixed inset-0 z-1000 flex touch-pan-y items-center justify-center bg-black"
       role="dialog"
       aria-modal="true"
       aria-label="Photo viewer"
@@ -102,7 +102,7 @@ export function Lightbox({ images, folder, alt, index, onChange, onClose }) {
       >
         Close
       </button>
-      <span className="absolute top-5 left-5 inline-flex min-h-11 items-center text-[13px] text-white/70 tabular-nums">
+      <span className="absolute top-5 left-5 inline-flex min-h-11 items-center text-[13px] text-white tabular-nums">
         {index + 1} / {images.length}
       </span>
       <button
@@ -118,7 +118,7 @@ export function Lightbox({ images, folder, alt, index, onChange, onClose }) {
         <source srcSet={`/${folder}/${image.name}.webp`} type="image/webp" />
         <img
           key={image.name}
-          className="animate-fade-in rounded-media max-h-[80vh] max-w-[90vw] object-contain select-none sm:max-h-[86vh] sm:max-w-[80vw]"
+          className="max-h-[80vh] max-w-[90vw] object-contain select-none sm:max-h-[86vh] sm:max-w-[80vw]"
           src={`/${folder}/${image.name}.jpg`}
           alt={imageAlt(images, index, alt)}
           draggable={false}

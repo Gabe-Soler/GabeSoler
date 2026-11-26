@@ -1,8 +1,8 @@
-// The Projects section's subheadings, in display order.
+// Project sections on the home page, in display order.
 export const PROJECT_GROUPS = [
   { id: 'hackathons', title: 'Hackathons' },
-  { id: 'independent', title: 'Independent Projects' },
-  { id: 'research', title: 'School Research' },
+  { id: 'research', title: 'Research' },
+  { id: 'independent', title: 'Passion/Side Projects' },
 ];
 
 // Newest first within each group. Rendered as "> title — summary" with the points
@@ -47,7 +47,10 @@ export const PROJECTS = [
     group: 'hackathons',
     date: 'Nov 2026',
     placement: '1st place',
-    points: [],
+    points: [
+      'ETF arbitrage case: a Python bot that prices each tender against the full cost of unwinding it across the ETF and its two-stock basket, then exits through a smart order router with shock arbitrage and FX hedging',
+      'Volatility case: a bot that trades straddles on the gap between market-maker implied vol and analyst realized-vol forecasts, delta-hedged inside the limit; every change was validated in a simulator and on replays of recorded heats',
+    ],
   },
   {
     title: 'FIAM Asset Management Hackathon',
@@ -70,6 +73,17 @@ export const PROJECTS = [
     placement: '3rd place',
     summary: 'Explore your codebase as a city and fight bugs with Greptile',
     points: ['Y Combinator hackathon, San Francisco'],
+  },
+  {
+    title: 'StraddleX',
+    group: 'research',
+    date: 'Nov 2026 – Present',
+    summary: 'A bounded, adversarial LLM research harness for quantitative finance',
+    points: [
+      'LLMs propose typed hypotheses and argue bull and bear cases, but only deterministic, versioned code decides whether one passes',
+      'Pre-registered campaigns, immutable point-in-time data stages, cost-aware acceptance gates, and a single-use final holdout guard against overfitting and look-ahead bias',
+      'Every trial is recorded in a hash-chained ledger and a provenance graph; the usual output is a well-documented rejection',
+    ],
   },
   {
     title: 'Consensus-Based Portfolio Optimization',

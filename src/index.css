@@ -1,58 +1,19 @@
 @import "tailwindcss";
 
-/* ── DESIGN TOKENS ──
-   Navy ink on white paper, one narrow text column. Exposed to Tailwind as
-   utilities: text-ink, text-grey, bg-bg, border-line, … */
+/* Black on white, Inter and JetBrains Mono, one narrow column. Mobile first: base styles
+   are for phones; wider screens only get a wider gutter. */
 @theme {
-  /* ink & text: navy. ink 14.7:1 on bg, grey 6.4:1 */
-  --color-ink: #14213d;
-  --color-text: #14213d;
-  --color-grey: #4b5a78;
-
-  /* lines: soft grey-blue, for link underlines and the footer rule */
-  --color-line: #d3d9e3;
-  --color-line-hover: #14213d;
-
-  /* surfaces: white page. `media` only shows behind images while they load. */
+  --color-ink: #000000;
   --color-bg: #ffffff;
-  --color-media: #f1f3f6;
-
-  --color-ring: rgb(20 33 61 / 0.35);
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  /* Tagline and metadata: dates, repo details, build info. */
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  --radius-media: 6px;
-
-  --animate-fade-in: fade-in 0.25s ease;
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-  }
 }
 
-/* ── BASE ── */
 @layer base {
   html {
     color-scheme: light;
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-      transition: none !important;
-      animation: none !important;
-    }
   }
 
   body {
@@ -61,9 +22,6 @@
     line-height: 1.5;
     color: var(--color-ink);
     background-color: var(--color-bg);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
@@ -71,45 +29,29 @@
     color: var(--color-bg);
   }
 
-  :target {
-    scroll-margin-top: 2rem;
-  }
-
   :focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--color-ring);
-    border-radius: 2px;
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
   }
 }
 
-/* ── SHARED UTILITIES ── */
-
-/* One column: 896px wide with deep side padding, so text runs about 700px. */
 @utility wrap {
-  max-width: 896px;
+  max-width: 640px;
   margin-inline: auto;
-  padding-left: max(24px, env(safe-area-inset-left));
-  padding-right: max(24px, env(safe-area-inset-right));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
 
-  @media (width >= 48rem) {
-    padding-inline: 48px;
-  }
-
-  @media (width >= 64rem) {
-    padding-inline: 96px;
+  @media (width >= 40rem) {
+    padding-inline: 24px;
   }
 }
 
-@utility section-y {
-  padding-top: 2.75rem;
-}
-
-/* Inline link: a thin grey underline that turns navy on hover. */
 @utility link {
-  border-bottom: 1px solid var(--color-line);
-  transition: border-color 0.15s;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
 
   &:hover {
-    border-color: var(--color-line-hover);
+    text-decoration-thickness: 2px;
   }
 }
