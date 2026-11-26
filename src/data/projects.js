@@ -1,6 +1,6 @@
 // Project sections on the home page, in display order.
 export const PROJECT_GROUPS = [
-  { id: 'hackathons', title: 'Hackathons' },
+  { id: 'competitions', title: 'Competitions' },
   { id: 'research', title: 'Research' },
   { id: 'independent', title: 'Passion/Side Projects' },
 ];
@@ -18,7 +18,6 @@ export const PROJECTS = [
     points: [
       'Adds a VS Code-style file explorer that follows the focused terminal, colours files by git status, and marks files an agent recently edited',
       'Follow-agent mode opens each file an agent touches beside its terminal as a live diff, line by line',
-      'Written in Swift, with a CLI so agents and scripts can drive the explorer',
     ],
     links: [
       { href: 'https://gabe-soler.github.io/GMUX/', label: 'site' },
@@ -33,8 +32,7 @@ export const PROJECTS = [
     summary: 'An operating system for robot crews building on Mars',
     points: [
       'Decides which robot does what, when, and with how much power, while Earth supervises across a 4⁠–⁠24 minute delay and multi-week blackouts',
-      'Built in Rust with ArcadiaBench, an open, seeded simulator of a landing-pad build site at Arcadia Planitia, and arcadia-protocol, a versioned JSON Schema interface for coordinators written in any language',
-      'Open source, in progress',
+      'Built in Rust alongside ArcadiaBench, an open, seeded simulator of a Mars build site, and a JSON Schema protocol so coordinators can be written in any language',
     ],
     links: [
       { href: 'https://gabe-soler.github.io/arcadiabench/viewer/', label: 'simulator' },
@@ -44,35 +42,42 @@ export const PROJECTS = [
   },
   {
     title: 'RITC x Smith 2026 Algorithmic Trading Competition',
-    group: 'hackathons',
+    group: 'competitions',
     date: 'Nov 2026',
     placement: '1st place',
     points: [
-      'ETF arbitrage case: a Python bot that prices each tender against the full cost of unwinding it across the ETF and its two-stock basket, then exits through a smart order router with shock arbitrage and FX hedging',
-      'Volatility case: a bot that trades straddles on the gap between market-maker implied vol and analyst realized-vol forecasts, delta-hedged inside the limit; every change was validated in a simulator and on replays of recorded heats',
+      'ETF arbitrage bot that prices each tender by its full unwind cost and exits through a smart order router',
+      'Volatility bot trading delta-hedged straddles on the gap between implied and forecast vol',
     ],
   },
   {
     title: 'FIAM Asset Management Hackathon',
-    group: 'hackathons',
+    group: 'competitions',
     date: 'Sep – Oct 2026',
     placement: '2nd place',
     summary: 'A market-neutral U.S. equity strategy with an LLM risk manager',
     points: [
-      '2026 finals with Team Plutus, advised by Professor Evan Jo (Smith School of Business)',
-      'A Bayesian model learns which of 147 published stock characteristics still earn a premium; each stock trades as an agent through consensus ADMM only when expected gain beats cost',
-      'A local LLM risk manager reads 8-K filings and can only shrink positions ahead of pending events',
+      'Bayesian model picks which of 147 stock characteristics still earn a premium; stocks trade as agents via consensus ADMM',
       '11.78% CAGR, 0.80 Sharpe, 0.42 net IR, 11.3% max drawdown',
     ],
+    links: [{ href: '/papers/fiam-2026-plutus.pdf', label: 'paper' }],
   },
   {
     title: 'RepoWorld',
-    group: 'hackathons',
+    group: 'competitions',
     date: 'Aug 2026',
     href: 'https://repo-world.vercel.app/',
     placement: '3rd place',
-    summary: 'Explore your codebase as a city and fight bugs with Greptile',
-    points: ['Y Combinator hackathon, San Francisco'],
+    summary: 'Explore your codebase as a city and fight bugs with Greptile (Y Combinator hackathon, San Francisco)',
+    points: [],
+  },
+  {
+    title: 'National Bank of Canada x QUANTT Algorithmic Trading Competition',
+    group: 'competitions',
+    date: 'Mar 2026',
+    placement: '2nd place',
+    summary: '2nd of 17 teams',
+    points: [],
   },
   {
     title: 'StraddleX',
@@ -81,18 +86,7 @@ export const PROJECTS = [
     summary: 'A bounded, adversarial LLM research harness for quantitative finance',
     points: [
       'LLMs propose typed hypotheses and argue bull and bear cases, but only deterministic, versioned code decides whether one passes',
-      'Pre-registered campaigns, immutable point-in-time data stages, cost-aware acceptance gates, and a single-use final holdout guard against overfitting and look-ahead bias',
       'Every trial is recorded in a hash-chained ledger and a provenance graph; the usual output is a well-documented rejection',
-    ],
-  },
-  {
-    title: 'Consensus-Based Portfolio Optimization',
-    group: 'research',
-    date: '2025',
-    summary: 'A distributed optimizer that treats each stock as an agent',
-    points: [
-      'Gradient descent across a fully connected graph of stock agents, converging to a consensus weight vector over 400 iterations',
-      'Sharpe ratio above 2.0 throughout the backtest, with return skewness of +3.19',
     ],
   },
 ];

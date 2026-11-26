@@ -35,14 +35,13 @@ export function Home() {
         </List>
       </Section>
 
-      <Section id="fun" title="On The Side">
+      <Section id="interests" title="Interested In">
         <List>
-          <Item>
-            <TextLink to="/photography">Photography</TextLink>
-          </Item>
-          <Item>
-            <TextLink to="/design">Graphic Design</TextLink>
-          </Item>
+          {INTERESTS.map((interest) => (
+            <Item key={interest.title}>
+              {interest.href ? <TextLink href={interest.href}>{interest.title}</TextLink> : interest.title}
+            </Item>
+          ))}
         </List>
       </Section>
 
@@ -70,13 +69,14 @@ export function Home() {
         </Section>
       ))}
 
-      <Section id="interests" title="Interested In">
+      <Section id="creative" title="Creative">
         <List>
-          {INTERESTS.map((interest) => (
-            <Item key={interest.title}>
-              {interest.href ? <TextLink href={interest.href}>{interest.title}</TextLink> : interest.title}
-            </Item>
-          ))}
+          <Item>
+            <TextLink to="/photography">Photography</TextLink>
+          </Item>
+          <Item>
+            <TextLink to="/design">Graphic Design</TextLink>
+          </Item>
         </List>
       </Section>
     </>
@@ -115,7 +115,7 @@ function Job({ job }) {
         {job.roles.map((role) => (
           <div key={role.role}>
             <Head title={role.role} date={role.date} />
-            <SubList items={role.points} />
+            {(role.points.length > 0 || role.links) && <SubList items={withLinks(role.points, role.links)} />}
           </div>
         ))}
       </div>
@@ -125,12 +125,6 @@ function Job({ job }) {
 
 /** Title, placement and date, then the one-line summary, the points, and any links. */
 function Project({ project }) {
-  const links = project.links?.map((link, i) => (
-    <span key={link.href}>
-      {i > 0 && ' · '}
-      <TextLink href={link.href}>{link.label}</TextLink>
-    </span>
-  ));
 
   return (
     <Item>
@@ -140,9 +134,21 @@ function Project({ project }) {
         date={project.date}
       />
       {project.summary && <p className={muted}>{project.summary}</p>}
-      {(project.points.length > 0 || links) && (
-        <SubList items={links ? [...project.points, links] : project.points} />
-      )}
+      {(project.points.length > 0 || project.links) && <SubList items={withLinks(project.points, project.links)} />}
     </Item>
   );
+}
+
+/** Bullet points, with any links joined by dots as one last bullet. */
+function withLinks(points, links) {
+  if (!links) return points;
+  return [
+    ...points,
+    links.map((link, i) => (
+      <span key={link.href}>
+        {i > 0 && ' · '}
+        <TextLink href={link.href}>{link.label}</TextLink>
+      </span>
+    )),
+  ];
 }

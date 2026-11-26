@@ -14,7 +14,7 @@ export const SITE = {
 // "Currently" on the home page. Keep it current; three or four is plenty.
 // An item is a string, or { text, links } to follow the text with a list of links.
 export const NOW = [
-  'Portfolio Manager, QUANTT L/S Gamma Desk',
+  'Portfolio Manager, QUANTT Long/Short Gamma Desk',
   {
     text: 'Building and exploring:',
     links: [
@@ -23,5 +23,5 @@ export const NOW = [
       { label: 'StraddleX', href: '#research' },
     ],
   },
-  'Incoming Sales & Trading Summer Analyst, RBC (May 2027)',
+  'Incoming Global Markets Program Summer Analyst, RBC (May 2027)',
 ];

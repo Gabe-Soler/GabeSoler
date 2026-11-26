@@ -4,19 +4,18 @@
 export const EXPERIENCE = [
   {
     company: 'RBC Capital Markets',
-    date: 'May 2026 – May 2027',
     roles: [
       {
-        role: 'Global Markets Program Summer Analyst',
+        role: 'Incoming Global Markets Program Summer Analyst',
         date: 'May 2027',
-        points: ['Incoming: Sales and Trading division, a 4-month internship in Toronto'],
+        points: [],
       },
       {
         role: 'AI Innovation Intern',
         date: 'May 2026 – Aug 2026',
         points: [
           'Co-created and led Bridge AI, a forward-deployed engineering initiative bridging AI talent and SMEs; presented results and vision to 120 employees',
-          'Built the Operational Risk Prompt Library, a central database for AI prompts, agents, and products, later adopted at the LOB level',
+          'Built the Operational Risk Prompt Library, a central database for AI prompts, agents, and products, later adopted at the line of business level',
           'Developed Seshat, an AI chatbot that routes employees to the right AI solution for their problem',
         ],
       },
@@ -30,18 +29,18 @@ export const EXPERIENCE = [
         role: 'Portfolio Manager, Long/Short Gamma Desk',
         date: 'Apr 2026 – Present',
         points: [
-          'Designing a long/short gamma strategy using GARCH and HAR volatility forecasts to capture the volatility risk premium',
-          'Building options trading infrastructure that ingests real-time CBOE data and historical WRDS and yfinance data through a multi-threaded pipeline',
+          'Lead a 5-person desk trading regime-dependent gamma on SPY options: a GARCH forecast of realized vol against implied vol picks long or short gamma across 10 option structures',
+          'Built the desk\'s trading infrastructure: a daily data pipeline, automated IBKR paper trading with delta hedging, and a walk-forward backtester with a spread model fit on live quotes',
+          'Launched lsgamma.quantt.ca, the desk\'s public hub for research and paper-trading results, and wrote a 10-lesson options curriculum for new analysts',
         ],
       },
       {
         role: 'Quantitative Analyst',
         date: 'Sep 2025 – Apr 2026',
         points: [
-          '2nd of 17 teams at the 2026 National Bank of Canada x QUANTT Trading Competition',
-          'Built a sleeve-level beta neutralization framework that cut annualized volatility by 70% vs. the S&P 500',
-          'Designed the Consensus-Based Optimizer (CBO), holding a Sharpe ratio above 2.0 throughout backtesting',
+          'Co-authored a paper on the desk\'s market-neutral long/short equity strategy: five-factor scoring, the Consensus-Based Optimizer, and Black-Litterman sector allocation',
         ],
+        links: [{ href: '/papers/long-short-equities.pdf', label: 'paper' }],
       },
     ],
   },
@@ -51,16 +50,6 @@ export const EXPERIENCE = [
     date: 'Apr 2026 – Present',
     points: [
       'Managing a $30,000+ budget, allocation, and vendor negotiations',
-      'Working with 10+ executives to plan and finance the conference for 10+ sponsors and 150+ participants',
-    ],
-  },
-  {
-    role: 'Director & Developer',
-    company: "Queen's Engineering Competition",
-    date: 'May 2025 – Nov 2025',
-    points: [
-      'Designed and built the competition website, handling registration for 200+ competitors and 3+ sponsors',
-      'Worked with 19 executives to plan competition logistics across 8+ categories',
     ],
   },
 ];
