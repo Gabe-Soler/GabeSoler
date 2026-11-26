@@ -15,7 +15,7 @@ export function TextLink({ to, href, className = '', children, ...rest }) {
     );
   }
 
-  const external = href?.startsWith('http');
+  const external = href?.startsWith('http') || href?.endsWith('.pdf');
   return (
     <a href={href} className={classes} {...(external && { target: '_blank', rel: 'noreferrer' })} {...rest}>
       {children}

@@ -12,7 +12,7 @@ const META = {
   '/': {
     title: 'Gabriel Soler | AI & Trading',
     description:
-      "Portfolio of Gabriel Soler — Queen's Math and Engineering student focused on AI and Trading, with experience across quantitative research, algorithmic trading, and full-stack software engineering.",
+      "Gabriel Soler: Mathematics and Engineering at Queen's University, working on AI and quantitative trading. Long/short gamma desk lead at QUANTT, algorithmic trading competition winner, and builder of agentic AI and research tools.",
   },
   '/design': {
     title: 'Design | Gabriel Soler',
