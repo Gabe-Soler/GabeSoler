@@ -17,9 +17,10 @@ function spaFallback() {
     name: 'spa-fallback-404',
     apply: 'build',
     configResolved(config) {
-      outDir = resolve(config.root, config.build.outDir);
+      outDir = config.build.ssr ? null : resolve(config.root, config.build.outDir);
     },
     closeBundle() {
+      if (!outDir) return; // the prerender's server build has no index.html
       copyFileSync(resolve(outDir, 'index.html'), resolve(outDir, '404.html'));
     },
   };
@@ -29,6 +30,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), spaFallback()],
   // Build time, shown in the footer as "last updated".
   define: {
-    __BUILD__: JSON.stringify({ date: new Date().toISOString() }),
+    // scripts/build.mjs sets BUILD_DATE so the client and prerender builds agree.
+    __BUILD__: JSON.stringify({ date: process.env.BUILD_DATE ?? new Date().toISOString() }),
   },
 });
